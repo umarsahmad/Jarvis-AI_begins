@@ -9,7 +9,6 @@ import numpy as np
 
 
 chatStr = ""
-# https://youtu.be/Z3ZAJoi4x6Q
 def chat(query):
     global chatStr
     print(chatStr)
@@ -44,12 +43,10 @@ def ai(prompt):
         presence_penalty=0
     )
     # todo: Wrap this inside of a  try catch block
-    # print(response["choices"][0]["text"])
     text += response["choices"][0]["text"]
     if not os.path.exists("Openai"):
         os.mkdir("Openai")
 
-    # with open(f"Openai/prompt- {random.randint(1, 2343434356)}", "w") as f:
     with open(f"Openai/{''.join(prompt.split('intelligence')[1:]).strip() }.txt", "w") as f: 
         f.write(text)
 
@@ -83,11 +80,11 @@ if __name__ == '__main__':
                 webbrowser.open(site[1])
         # todo: Add a feature to play a specific song
         if "open music" in query:
-            musicPath = "/Users/Sunny/Downloads/downfall-21371.mp3"
+            musicPath = "/Users/Sunny/Downloads/mnt.mp3"
             os.system(f"open {musicPath}")
 
         elif "the time" in query:
-            musicPath = "/Users/Sunny/Downloads/downfall-21371.mp3"
+            musicPath = "/Users/Sunny/Downloads/mnt.mp3"
             hour = datetime.datetime.now().strftime("%H")
             min = datetime.datetime.now().strftime("%M")
             say(f"Sir time is {hour} bajke {min} minutes")
